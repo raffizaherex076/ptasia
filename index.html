@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toko Karya Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .profile {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .profile img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #e0e0e0;
+    }
+    .profile h2 {
+      margin: 15px 0 5px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .profile p {
+      color: #777;
+      font-size: 14px;
+    }
+    .product {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #e6e6e6;
+      border-radius: 12px;
+      padding: 14px;
+      background: #fcfcfc;
+      transition: box-shadow 0.2s ease;
+    }
+    .product:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .product img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+    .product-info {
+      flex: 1;
+    }
+    .product-info h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .product-info p {
+      margin: 4px 0;
+      color: #555;
+      font-size: 14px;
+    }
+    .stok {
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .tersedia { color: #28a745; }
+    .habis { color: #dc3545; }
+    .btn-beli {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 16px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+    .btn-beli:hover {
+      background: #0056b3;
+    }
+    .btn-disable {
+      background: #ccc;
+      color: #888;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 30px;
+    }
+
+    /* Tombol & popup lapor */
+    .lapor-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff5555;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .lapor-popup {
+      display: none;
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 250px;
+      z-index: 100;
+    }
+
+    .lapor-popup select, .lapor-popup button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 13px;
+    }
+
+    .lapor-popup button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .notif {
+      position: fixed;
+      bottom: 130px;
+      right: 20px;
+      background: #28a745;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="profile">
+    <img src="botspacemanapk.webp" alt="Foto Profil">
+    <h2>@botspacemanpredictorr</h2>
+    <p>Terima kasih yang sudah order 🤗</p>
+  </div>
+
+  <!-- Produk 1 -->
+  <div class="product">
+    <img src="botspacemanapk.webp" alt="Produk 1">
+    <div class="product-info">
+      <h3>Spaceman Predictor Apk</h3>
+      <p>Harga: Rp100.000</p>
+      <p class="stok tersedia">Stok: Tersedia</p>
+      <a href="https://wa.me/6281234567890?text=Halo%2C+saya+mau+pesan+Spaceman+Predictor+Apk" target="_blank" class="btn-beli">Beli Sekarang</a>
+    </div>
+  </div>
+
+  <!-- Produk 2 -->
+  <div class="product">
+    <img src="botspacemantelegram.webp" alt="Produk 2">
+    <div class="product-info">
+      <h3>Spaceman Predictor Telegram</h3>
+      <p>Harga: Rp50.000</p>
+      <p class="stok habis">Stok: Habis</p>
+      <span class="btn-beli btn-disable">Beli Sekarang</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; PT DIGITAL ASIA ENGINERI 2025
+  </div>
+</div>
+
+<!-- Tombol Laporkan -->
+<button class="lapor-btn" onclick="togglePopup()">Laporkan Produk</button>
+
+<!-- Popup -->
+<div class="lapor-popup" id="laporForm">
+  <label for="alasan">Pilih Alasan:</label>
+  <select id="alasan">
+    <option value="">-- Pilih alasan --</option>
+    <option value="tidak-sesuai">Produk tidak sesuai</option>
+    <option value="penipuan">Penipuan</option>
+    <option value="hak-cipta">Pelanggaran hak cipta</option>
+    <option value="lainnya">Lainnya</option>
+  </select>
+  <button onclick="kirimLaporan()">Kirim</button>
+</div>
+
+<!-- Notifikasi -->
+<div class="notif" id="notif">Berhasil dikirim!</div>
+
+<script>
+  function togglePopup() {
+    const popup = document.getElementById('laporForm');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function kirimLaporan() {
+    const alasan = document.getElementById('alasan').value;
+    if (alasan === "") {
+      alert("Silakan pilih alasan terlebih dahulu.");
+      return;
+    }
+    document.getElementById('laporForm').style.display = 'none';
+    document.getElementById('alasan').value = "";
+
+    const notif = document.getElementById('notif');
+    notif.style.display = 'block';
+    setTimeout(() => {
+      notif.style.display = 'none';
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>
